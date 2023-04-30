@@ -34,51 +34,61 @@ class WeatherViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.isLoading = true
         }
-       
+        
         weatherFetcher.fetchWeatherData(for: city)
             .receive(on: DispatchQueue.main)
-      .sink(
-        receiveCompletion: { [weak self] value in
-          guard let self = self else { return }
-          
-         self.isLoading = false
-          switch value {
-          case .failure(let err):
-              self.errorMessage = err.localizedDescription
-              self.weatherDataModel = nil
-          case .finished:
-            break
-          }
-        },
-        receiveValue: { [weak self] model in
-          guard let self = self else { return }
-
-          self.weatherDataModel = model
-      })
-      .store(in: &disposables)
-  }
+            .sink(
+                receiveCompletion: { [weak self] value in
+                    guard let self = self else { return }
+                    
+                    self.isLoading = false
+                    switch value {
+                    case .failure(let err):
+                        self.errorMessage = err.localizedDescription
+                        self.weatherDataModel = nil
+                    case .finished:
+                        break
+                    }
+                },
+                receiveValue: { [weak self] model in
+                    guard let self = self else { return }
+                    
+                    self.updateCityName(cityName: city)
+                    self.weatherDataModel = model
+                })
+            .store(in: &disposables)
+    }
     
     func fetchCityName(lat: String, lon: String) {
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+        
         weatherFetcher.fetchCity(with: lat, lon: lon)
             .receive(on: DispatchQueue.main)
             .sink(
-              receiveCompletion: { [weak self] value in
-                guard let self = self else { return }
-
-                switch value {
-                case .failure(let err):
-                    self.errorMessage = err.localizedDescription
-                case .finished:
-                  break
-                }
-              },
-              receiveValue: { [weak self] model in
-                guard let self = self else { return }
-                  
-                  if let city = model.first?.name {
-                      self.fetchWeather(forCity: city)
-                  }
-            })
+                receiveCompletion: { [weak self] value in
+                    guard let self = self else { return }
+                    
+                    self.isLoading = false
+                    switch value {
+                    case .failure(let err):
+                        self.errorMessage = err.localizedDescription
+                    case .finished:
+                        break
+                    }
+                },
+                receiveValue: { [weak self] model in
+                    guard let self = self else { return }
+                    
+                    if let city = model.first?.name {
+                        self.fetchWeather(forCity: city)
+                    }
+                })
             .store(in: &disposables)
+    }
+    
+    func updateCityName(cityName: String) {
+        UserDefaults.standard.set(cityName, forKey: "cityName")
     }
 }

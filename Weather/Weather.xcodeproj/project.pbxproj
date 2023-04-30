@@ -28,6 +28,7 @@
 		276D1D6829FE1E39006CCD58 /* WeatherDataFeacherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D1D6729FE1E39006CCD58 /* WeatherDataFeacherTests.swift */; };
 		276D1D6A29FEBE8F006CCD58 /* WeatherMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D1D6929FEBE8F006CCD58 /* WeatherMainView.swift */; };
 		276D1D6C29FED639006CCD58 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D1D6B29FED639006CCD58 /* WeatherViewModel.swift */; };
+		276D1D6E29FF1DB0006CCD58 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D1D6D29FF1DAF006CCD58 /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		276D1D6729FE1E39006CCD58 /* WeatherDataFeacherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataFeacherTests.swift; sourceTree = "<group>"; };
 		276D1D6929FEBE8F006CCD58 /* WeatherMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMainView.swift; sourceTree = "<group>"; };
 		276D1D6B29FED639006CCD58 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		276D1D6D29FF1DAF006CCD58 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 		276D1D4F29FDCCC1006CCD58 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				276D1D6D29FF1DAF006CCD58 /* AppConstants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				276D1D5329FDD601006CCD58 /* WeatherDataFeacher.swift in Sources */,
 				276D1D6A29FEBE8F006CCD58 /* WeatherMainView.swift in Sources */,
 				275059C729FDCAB00081EFF5 /* SceneDelegate.swift in Sources */,
+				276D1D6E29FF1DB0006CCD58 /* AppConstants.swift in Sources */,
 				276D1D6629FE1510006CCD58 /* LocationPublisher.swift in Sources */,
 				276D1D5F29FE02DD006CCD58 /* CityModel.swift in Sources */,
 			);
