@@ -73,11 +73,11 @@ private extension WeatherDataFetcher {
       
       components.queryItems = [
         URLQueryItem(name: "q", value: city),
-        URLQueryItem(name: "mode", value: "json"),
-        URLQueryItem(name: "units", value: "metric"),
+        URLQueryItem(name: "units", value: "imperial"),
+//        URLQueryItem(name: "units", value: "metric"),
         URLQueryItem(name: "APPID", value: APIConfig.apiKey)
       ]
-      
+      print(components)
       return components
     }
 }
