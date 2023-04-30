@@ -41,7 +41,7 @@ struct NetworkDispatcher: Dispatchable {
             })
             .decode(type: T.self, decoder: JSONDecoder())
             .mapError { error in
-                handleError(error)
+               handleError(error)
             }
             .eraseToAnyPublisher()
     }
